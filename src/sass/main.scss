@@ -16,3 +16,116 @@ body {
     font-size: 14px;
     overflow-x: hidden;
 }
+
+%bg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    @extend %bg;
+    background-image: url(../img/header.jpg);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    .header__heading,
+    .header__subheading {
+        color: #fff;
+        margin: 0 0 0 10%;
+        text-shadow: 1px 1px 10px #000;
+    }
+    .header__heading {
+        font-size: 60px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    .header__subheading {
+        font-size: 40px;
+    }
+}
+
+.products {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    @media all and (min-width: 1400px) {
+        max-width: 1300px;
+    }
+    @media all and (min-width: 1600px) {
+        max-width: 1500px;
+    }
+    @media all and (min-width: 1920px) {
+        max-width: 1800px;
+    }
+    &__single-product {
+        width: 100%;
+        flex: 1 0 100%;
+        margin: 1% 0.5% 2% 0.5%;
+        padding: 0 20px;
+        position: relative;
+        &:hover {
+            box-shadow: 1px 1px 10px #ccc;
+        }
+        @media all and (min-width: 600px) and (max-width: 767px) {
+            flex: 1 0 48%;
+        }
+        @media all and (min-width: 768px) and (max-width: 1199px) {
+            flex: 1 0 30%;
+        }
+        @media all and (min-width: 1200px) {
+            flex: 1 0 24%;
+        }
+    }
+    &__img-wrapper {
+        height: 300px;
+        overflow: hidden;
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            height: 400px;
+        }
+        @media all and (min-width: 1200px) {
+            height: 500px;
+        }
+        @media all and (min-width: 1920px) {
+            height: 600px;
+        }
+    }
+    .products-caption {
+        text-align: center;
+        &__name,
+        &__price,
+        &__btn {
+            display: block;
+        }
+        &__name {
+            margin: 0 0 1em 0;
+            text-transform: uppercase;
+        }
+        &__price {
+            font-size: 30px;
+        }
+        &__btn {
+            width: 80%;
+            background-color: #fff;
+            border: 2px solid #000;
+            color: #000;
+            display: block;
+            margin: auto;
+            padding: 8px 0;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.5s ease-in;
+            &:hover {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+    }
+    .products-image {
+        &__image {
+            width: 100%;
+        }
+    }
+}
