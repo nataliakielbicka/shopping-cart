@@ -2,9 +2,26 @@ const apiURL = 'https://api.myjson.com/bins/1etx1x';
 
 Vue.filter("addCurrency", val => val.toFixed(2) + ' $');
 
+Vue.component('shopping-cart', {
+    props: ['items'],
+    computed: {
+        Total: function() {
+            let total = 0;
+            this.items.forEach(item => {
+                total += (item.price * item.quantity);
+            });
+            return total;
+        }
+    },
+    methods: {
+
+    }
+})
+
 const vm = new Vue({
     el: '#shop',
     data: {
+        cartItems: [],
         items: [],
         addToCartBtn: "Add to cart",
         sortType: 'sort',
@@ -27,6 +44,19 @@ const vm = new Vue({
         sortBy(sortKey) {
             this.items.sort((a, b) =>
                 (typeof a[sortKey] === 'string' || typeof b[sortKey] === 'string') ? a[sortKey].localeCompare(b[sortKey]) : a[sortKey] - b[sortKey]);
+        },
+        addToCart(itemToAdd) {
+            let found = false;
+            this.cartItems.forEach(item => {
+                if (item.id === itemToAdd.id) {
+                    found = true;
+                    item.quantity += itemToAdd.quantity;
+                }
+            });
+            if (found === false) {
+                this.cartItems.push(Vue.util.extend({}, itemToAdd));
+            }
+            itemToAdd.quantity = 1;
         }
     }
 })

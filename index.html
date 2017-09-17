@@ -16,49 +16,52 @@
     </header>
 
     <main id="shop">
-        <div class="cart">
-            <table class="cart__table">
-                <thead>
-                    <tr class="cart-table__row cart-table__row--head cart-table-row">
-                        <th class="cart-table-row__cell">Image</th>
-                        <th class="cart-table-row__cell">Quantity</th>
-                        <th class="cart-table-row__cell">Price</th>
-                        <th class="cart-table-row__cell"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="cart-table__row cart-table__row--body cart-table-row">
-                        <td class="cart-table-row__cell"><img src="" alt="" class="cart-table-row__image"></td>
-                        <td class="cart-table-row__cell">name</td>
-                        <td class="cart-table-row__cell cart-buttons">
-                            <span class="cart-buttons__quantity">quantity</span>
-                            <div class="cart-buttons__wrapper cart-buttons-wrapper">
-                                <button class="cart-buttons-wrapper--add">+</button>
-                                <button class="cart-buttons-wrapper--subtract">-</button>
-                            </div>
-                        </td>
-                        <td class="cart-table-row__cell">price</td>
-                        <td class="cart-table-row__cell cart-buttons">
-                            <a href="#" class="cart-buttons--remove">remove</a>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td class="cart-table-row__cell" colspan="4">Shopping cart is empty</td>
-                    </tr>
-                    <tr>
-                        <td class="cart-table-row__cell"></td>
-                        <td class="cart-table-row__cell cart-table__total">Cart Total</td>
-                        <td class="cart-table-row__cell cart-table__total">total</td>
-                        <td class="cart-table-row__cell"></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+        <shopping-cart inline-template :items="cartItems">
+            <div class="cart">
+                <table class="cart__table">
+                    <thead>
+                        <tr class="cart-table__row cart-table__row--head cart-table-row">
+                            <th class="cart-table-row__cell">Image</th>
+                            <th class="cart-table-row__cell">Quantity</th>
+                            <th class="cart-table-row__cell">Price</th>
+                            <th class="cart-table-row__cell"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in items" class="cart-table__row cart-table__row--body cart-table-row">
+                            <td class="cart-table-row__cell"><img :src="item.img" alt="item.id" class="cart-table-row__image"></td>
+                            <td class="cart-table-row__cell">{{ item.name }}</td>
+                            <td class="cart-table-row__cell cart-buttons">
+                                <span class="cart-buttons__quantity">{{ item.quantity }}</span>
+                                <div class="cart-buttons__wrapper cart-buttons-wrapper">
+                                    <button class="cart-buttons-wrapper--add">+</button>
+                                    <button class="cart-buttons-wrapper--subtract">-</button>
+                                </div>
+                            </td>
+                            <td class="cart-table-row__cell">{{ item.price | addCurrency }}</td>
+                            <td class="cart-table-row__cell cart-buttons">
+                                <a href="#" class="cart-buttons--remove">remove</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="cart-table-row__cell" colspan="4">Shopping cart is empty</td>
+                        </tr>
+                        <tr>
+                            <td class="cart-table-row__cell"></td>
+                            <td class="cart-table-row__cell cart-table__total">Cart Total</td>
+                            <td class="cart-table-row__cell cart-table__total">{{ Total | addCurrency }}</td>
+                            <td class="cart-table-row__cell"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </shopping-cart>
+
 
         <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType">
-            <option v-for="item in sortOptions" :value="item.value">{{item.text}}</option>
+            <option v-for="item in sortOptions" :value="item.value">{{ item.text }}</option>
         </select>
 
         <div class="products">
@@ -69,7 +72,7 @@
                 <figcaption class="products__caption products-caption">
                     <h3 class="products-caption__name">{{ item.name }}</h3>
                     <span class="products-caption__price">{{ item.price | addCurrency }}</span>
-                    <a href="#" class="products-caption__btn">{{ addToCartBtn }}</a>
+                    <a href="#" class="products-caption__btn" @click.prevent="addToCart(item)">{{ addToCartBtn }}</a>
                 </figcaption>
             </figure>
         </div>
