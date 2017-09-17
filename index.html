@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="item in items" class="cart-table__row cart-table__row--body cart-table-row">
+                        <tr v-for="(item,index) in items" class="cart-table__row cart-table__row--body cart-table-row">
                             <td class="cart-table-row__cell"><img :src="item.img" alt="item.id" class="cart-table-row__image"></td>
                             <td class="cart-table-row__cell">{{ item.name }}</td>
                             <td class="cart-table-row__cell cart-buttons">
@@ -44,7 +44,7 @@
                             </td>
                             <td class="cart-table-row__cell">{{ item.price | addCurrency }}</td>
                             <td class="cart-table-row__cell cart-buttons">
-                                <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(item)"><img src="dist/img/remove.svg" alt="remove" class="cart-buttons--remove__img"></a>
+                                <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(index)"><img src="dist/img/remove.svg" alt="remove" class="cart-buttons--remove__img"></a>
                             </td>
                         </tr>
                     </tbody>
