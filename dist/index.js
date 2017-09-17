@@ -20,6 +20,13 @@ Vue.component('shopping-cart', {
     methods: {
         removeItem: function removeItem(index) {
             this.items.splice(index, 1);
+        },
+
+        addOne: function addOne(item) {
+            item.quantity++;
+        },
+        removeOne: function removeOne(item) {
+            item.quantity--;
         }
     }
 });

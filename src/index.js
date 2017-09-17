@@ -16,6 +16,12 @@ Vue.component('shopping-cart', {
     methods: {
         removeItem(index) {
             this.items.splice(index, 1)
+        },
+        addOne: item => {
+            item.quantity++;
+        },
+        removeOne: item => {
+            item.quantity--;
         }
     }
 })

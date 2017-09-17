@@ -34,8 +34,8 @@
                             <td class="cart-table-row__cell cart-buttons">
                                 <span class="cart-buttons__quantity">{{ item.quantity }}</span>
                                 <div class="cart-buttons__wrapper cart-buttons-wrapper">
-                                    <button class="cart-buttons-wrapper--add">+</button>
-                                    <button class="cart-buttons-wrapper--subtract">-</button>
+                                    <a href="#" class="cart-buttons-wrapper--add" @click.prevent="addOne(item)">+</a>
+                                    <a href="#" class="cart-buttons-wrapper--subtract" v-if="item.quantity > 1" @click.prevent="removeOne(item)">-</a>
                                 </div>
                             </td>
                             <td class="cart-table-row__cell">{{ item.price | addCurrency }}</td>
