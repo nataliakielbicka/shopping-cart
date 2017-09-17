@@ -64,7 +64,7 @@
                 </div>
                 <figcaption class="products__caption products-caption">
                     <h3 class="products-caption__name">{{ item.name }}</h3>
-                    <span class="products-caption__price">{{ item.price }}</span>
+                    <span class="products-caption__price">{{ item.price | addCurrency }}</span>
                     <a href="#" class="products-caption__btn">{{ addToCartBtn }}</a>
                 </figcaption>
             </figure>

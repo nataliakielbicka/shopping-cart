@@ -1,5 +1,7 @@
 const apiURL = 'https://api.myjson.com/bins/1etx1x';
 
+Vue.filter("addCurrency", val => val.toFixed(2) + ' $');
+
 const vm = new Vue({
     el: '#shop',
     data: {
