@@ -5,7 +5,7 @@ Vue.filter("addCurrency", val => val.toFixed(2) + ' $');
 Vue.component('shopping-cart', {
     props: ['items'],
     computed: {
-        Total: function() {
+        total: function() {
             let total = 0;
             this.items.forEach(item => {
                 total += (item.price * item.quantity);
