@@ -17,14 +17,14 @@
 
     <main id="shop">
         <div class="products">
-            <figure class="products__single-product">
+            <figure v-for="item in items" class="products__single-product">
                 <div class="products__img-wrapper products-image">
-                    <img src="#" alt="" class="products-image__image">
+                    <img :src="item.img" :alt="item.id" class="products-image__image">
                 </div>
                 <figcaption class="products__caption products-caption">
-                    <h3 class="products-caption__name">name</h3>
-                    <span class="products-caption__price">price</span>
-                    <a href="#" class="products-caption__btn">Add to cart</a>
+                    <h3 class="products-caption__name">{{ item.name }}</h3>
+                    <span class="products-caption__price">{{ item.price }}</span>
+                    <a href="#" class="products-caption__btn">{{ addToCartBtn }}</a>
                 </figcaption>
             </figure>
         </div>
