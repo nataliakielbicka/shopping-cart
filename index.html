@@ -57,6 +57,10 @@
             </table>
         </div>
 
+        <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType">
+            <option v-for="item in sortOptions" :value="item.value">{{item.text}}</option>
+        </select>
+
         <div class="products">
             <figure v-for="item in items" class="products__single-product">
                 <div class="products__img-wrapper products-image">
