@@ -16,6 +16,47 @@
     </header>
 
     <main id="shop">
+        <div class="cart">
+            <table class="cart__table">
+                <thead>
+                    <tr class="cart-table__row cart-table__row--head cart-table-row">
+                        <th class="cart-table-row__cell">Image</th>
+                        <th class="cart-table-row__cell">Quantity</th>
+                        <th class="cart-table-row__cell">Price</th>
+                        <th class="cart-table-row__cell"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="cart-table__row cart-table__row--body cart-table-row">
+                        <td class="cart-table-row__cell"><img src="" alt="" class="cart-table-row__image"></td>
+                        <td class="cart-table-row__cell">name</td>
+                        <td class="cart-table-row__cell cart-buttons">
+                            <span class="cart-buttons__quantity">quantity</span>
+                            <div class="cart-buttons__wrapper cart-buttons-wrapper">
+                                <button class="cart-buttons-wrapper--add">+</button>
+                                <button class="cart-buttons-wrapper--subtract">-</button>
+                            </div>
+                        </td>
+                        <td class="cart-table-row__cell">price</td>
+                        <td class="cart-table-row__cell cart-buttons">
+                            <a href="#" class="cart-buttons--remove">remove</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="cart-table-row__cell" colspan="4">Shopping cart is empty</td>
+                    </tr>
+                    <tr>
+                        <td class="cart-table-row__cell"></td>
+                        <td class="cart-table-row__cell cart-table__total">Cart Total</td>
+                        <td class="cart-table-row__cell cart-table__total">total</td>
+                        <td class="cart-table-row__cell"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
         <div class="products">
             <figure v-for="item in items" class="products__single-product">
                 <div class="products__img-wrapper products-image">
