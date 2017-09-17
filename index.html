@@ -16,10 +16,12 @@
     </header>
 
     <main id="shop">
-        <shopping-cart inline-template :items="cartItems">
+
+        <a href="#" @click.prevent="toggleCart">Cart ({{cartItems.length}})</a>
+        <shopping-cart inline-template :items="cartItems" v-if="showCart">
             <div class="cart">
                 <table class="cart__table">
-                    <thead>
+                    <thead v-if="items.length">
                         <tr class="cart-table__row cart-table__row--head cart-table-row">
                             <th class="cart-table-row__cell">Image</th>
                             <th class="cart-table-row__cell">Quantity</th>
@@ -45,10 +47,10 @@
                         </tr>
                     </tbody>
                     <tfoot>
-                        <tr>
+                        <tr v-if="!items.length">
                             <td class="cart-table-row__cell" colspan="4">Shopping cart is empty</td>
                         </tr>
-                        <tr>
+                        <tr v-else>
                             <td class="cart-table-row__cell"></td>
                             <td class="cart-table-row__cell cart-table__total">Cart Total</td>
                             <td class="cart-table-row__cell cart-table__total">{{ Total | addCurrency }}</td>
@@ -58,7 +60,6 @@
                 </table>
             </div>
         </shopping-cart>
-
 
         <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType">
             <option v-for="item in sortOptions" :value="item.value">{{ item.text }}</option>

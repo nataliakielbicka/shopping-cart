@@ -37,6 +37,7 @@ var vm = new Vue({
         cartItems: [],
         items: [],
         addToCartBtn: "Add to cart",
+        showCart: false,
         sortType: 'sort',
         sortOptions: [{ text: 'sort by', value: 'sort' }, { text: 'name', value: 'name' }, { text: 'price', value: 'price' }]
     },
@@ -54,6 +55,10 @@ var vm = new Vue({
             this.items.sort(function (a, b) {
                 return typeof a[sortKey] === 'string' || typeof b[sortKey] === 'string' ? a[sortKey].localeCompare(b[sortKey]) : a[sortKey] - b[sortKey];
             });
+        },
+
+        toggleCart: function toggleCart() {
+            this.showCart = !this.showCart;
         },
         addToCart: function addToCart(itemToAdd) {
             var found = false;

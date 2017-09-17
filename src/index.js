@@ -32,6 +32,7 @@ const vm = new Vue({
         cartItems: [],
         items: [],
         addToCartBtn: "Add to cart",
+        showCart: false,
         sortType: 'sort',
         sortOptions: [
             { text: 'sort by', value: 'sort' },
@@ -52,6 +53,9 @@ const vm = new Vue({
         sortBy(sortKey) {
             this.items.sort((a, b) =>
                 (typeof a[sortKey] === 'string' || typeof b[sortKey] === 'string') ? a[sortKey].localeCompare(b[sortKey]) : a[sortKey] - b[sortKey]);
+        },
+        toggleCart: function() {
+            this.showCart = !this.showCart;
         },
         addToCart(itemToAdd) {
             let found = false;
