@@ -133,3 +133,55 @@ body {
 .cart-table-row__image {
     height: 150px;
 }
+
+.cart-icon {
+    width: 60px;
+    cursor: pointer;
+    display: block;
+    float: right;
+    padding: 10px;
+    position: relative;
+    &__img {
+        max-width: 40px;
+    }
+    &__nr {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background-color: #000;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        display: block;
+        font: {
+            size: 15px;
+            weight: bold;
+        }
+        line-height: 20px;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+.cart {
+    position: relative;
+    &__table {
+        background-color: #fff;
+        box-shadow: 1px 1px 10px #666;
+        position: absolute;
+        right: 10px;
+        max-width: 80%;
+        width: 100%;
+        top: 60px;
+        z-index: 10;
+    }
+    &-buttons--remove {
+        display: block;
+        &__img {
+            display: block;
+            margin: auto;
+            max-width: 45px;
+        }
+    }
+}

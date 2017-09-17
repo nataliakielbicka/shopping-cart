@@ -17,7 +17,8 @@
 
     <main id="shop">
 
-        <a href="#" @click.prevent="toggleCart">Cart ({{cartItems.length}})</a>
+        <a href="#" @click.prevent="toggleCart" class="cart-icon" title="view shopping cart"><img src="dist/img/cart.svg" alt="remove" class="cart-icon__img"><span class="cart-icon__nr">{{ cartItems.length }}</span>
+        </a>
         <shopping-cart inline-template :items="cartItems" v-if="showCart">
             <div class="cart">
                 <table class="cart__table">
@@ -42,7 +43,7 @@
                             </td>
                             <td class="cart-table-row__cell">{{ item.price | addCurrency }}</td>
                             <td class="cart-table-row__cell cart-buttons">
-                                <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(item)">remove</a>
+                                <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(item)"><img src="dist/img/remove.svg" alt="remove" class="cart-buttons--remove__img"></a>
                             </td>
                         </tr>
                     </tbody>
