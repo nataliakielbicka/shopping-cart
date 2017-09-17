@@ -73,7 +73,8 @@
                 <figcaption class="products__caption products-caption">
                     <h3 class="products-caption__name">{{ item.name }}</h3>
                     <span class="products-caption__price">{{ item.price | addCurrency }}</span>
-                    <a href="#" class="products-caption__btn" @click.prevent="addToCart(item)">{{ addToCartBtn }}</a>
+                    <a href="#" class="products-caption__btn" @click.prevent="addToCart(item)" v-show="itemInCart(item)">{{ addToCartBtn }}</a>
+                    <p v-show="!itemInCart(item)">{{ isInCart }}</p>
                 </figcaption>
             </figure>
         </div>

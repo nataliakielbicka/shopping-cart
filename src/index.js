@@ -33,6 +33,7 @@ const vm = new Vue({
         items: [],
         addToCartBtn: "Add to cart",
         showCart: false,
+        isInCart: 'Item was added to cart',
         sortType: 'sort',
         sortOptions: [
             { text: 'sort by', value: 'sort' },
@@ -69,6 +70,17 @@ const vm = new Vue({
                 this.cartItems.push(Vue.util.extend({}, itemToAdd));
             }
             itemToAdd.quantity = 1;
+        },
+        itemInCart(itemInCart) {
+            let inCart = false;
+            this.cartItems.forEach(item => {
+                if (item.id === itemInCart.id) {
+                    inCart = true;
+                }
+            });
+            if (inCart === false) {
+                return this.isInCart;
+            }
         }
     }
 })

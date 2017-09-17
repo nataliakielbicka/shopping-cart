@@ -38,6 +38,7 @@ var vm = new Vue({
         items: [],
         addToCartBtn: "Add to cart",
         showCart: false,
+        isInCart: 'Item was added to cart',
         sortType: 'sort',
         sortOptions: [{ text: 'sort by', value: 'sort' }, { text: 'name', value: 'name' }, { text: 'price', value: 'price' }]
     },
@@ -72,6 +73,17 @@ var vm = new Vue({
                 this.cartItems.push(Vue.util.extend({}, itemToAdd));
             }
             itemToAdd.quantity = 1;
+        },
+        itemInCart: function itemInCart(_itemInCart) {
+            var inCart = false;
+            this.cartItems.forEach(function (item) {
+                if (item.id === _itemInCart.id) {
+                    inCart = true;
+                }
+            });
+            if (inCart === false) {
+                return this.isInCart;
+            }
         }
     }
 });
