@@ -17,7 +17,11 @@ Vue.component('shopping-cart', {
             return total;
         }
     },
-    methods: {}
+    methods: {
+        removeItem: function removeItem(index) {
+            this.items.splice(index, 1);
+        }
+    }
 });
 
 var vm = new Vue({

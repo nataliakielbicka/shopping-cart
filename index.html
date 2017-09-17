@@ -40,7 +40,7 @@
                             </td>
                             <td class="cart-table-row__cell">{{ item.price | addCurrency }}</td>
                             <td class="cart-table-row__cell cart-buttons">
-                                <a href="#" class="cart-buttons--remove">remove</a>
+                                <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(item)">remove</a>
                             </td>
                         </tr>
                     </tbody>
