@@ -25,9 +25,10 @@
                     <thead v-if="items.length">
                         <tr class="cart-table__row cart-table__row--head cart-table-row">
                             <th class="cart-table-row__cell">Image</th>
+                            <th class="cart-table-row__cell">Name</th>
                             <th class="cart-table-row__cell">Quantity</th>
-                            <th class="cart-table-row__cell">Price</th>
-                            <th class="cart-table-row__cell"></th>
+                            <th class="cart-table-row__cell">Single price</th>
+                            <th class="cart-table-row__cell">Remove?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,13 +50,11 @@
                     </tbody>
                     <tfoot>
                         <tr v-if="!items.length">
-                            <td class="cart-table-row__cell" colspan="4">Shopping cart is empty</td>
+                            <td class="cart-table-row__cell cart-table-row__empty" colspan="4">Shopping cart is empty</td>
                         </tr>
                         <tr v-else>
-                            <td class="cart-table-row__cell"></td>
-                            <td class="cart-table-row__cell cart-table__total">Cart Total</td>
-                            <td class="cart-table-row__cell cart-table__total">{{ total | addCurrency }}</td>
-                            <td class="cart-table-row__cell"></td>
+                            <td class="cart-table-row__cell cart-table__total" colspan="2">Cart Total</td>
+                            <td class="cart-table-row__cell cart-table__total" colspan="3">{{ total | addCurrency }}</td>
                         </tr>
                     </tfoot>
                 </table>
