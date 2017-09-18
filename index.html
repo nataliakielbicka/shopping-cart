@@ -16,7 +16,7 @@
         <h3 class="header__subheading">Check our products</h3>
     </header>
 
-    <main id="shop" class="container">
+    <main id="shop" class="container" v-cloak>
 
         <a href="#" @click.prevent="toggleCart" class="cart-icon" title="view shopping cart"><img src="dist/img/cart-icon.svg" alt="remove" class="cart-icon__img"><span class="cart-icon__nr">{{ cartItems.length }}</span>
         </a>
