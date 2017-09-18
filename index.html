@@ -6,6 +6,7 @@
     <title>Clothes Shop - Natalia Kiełbicka</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Nunito&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="dist/css/main.min.css"> </head>
 
 <body>
@@ -68,13 +69,13 @@
         <div class="products">
             <figure v-for="item in items" class="products__single-product">
                 <div class="products__img-wrapper products-image">
-                    <img :src="item.img" :alt="item.id" class="products-image__image">
+                    <div class="products-image__image" :style='{ backgroundImage: " url( " + item.img + ") ", }'></div>
                 </div>
                 <figcaption class="products__caption products-caption">
                     <h3 class="products-caption__name">{{ item.name }}</h3>
                     <span class="products-caption__price">{{ item.price | addCurrency }}</span>
-                    <a href="#" class="products-caption__btn" @click.prevent="addToCart(item)" v-show="itemInCart(item)">{{ addToCartBtn }}</a>
-                    <p v-show="!itemInCart(item)">{{ isInCart }}</p>
+                    <a href="#" class="products-caption__btn products-caption-btn" @click.prevent="addToCart(item)" v-show="itemInCart(item)">{{ addToCartBtn }}</a>
+                    <p v-show="!itemInCart(item)" class="products-caption__btn products-caption__btn--incart">{{ isInCart }}</p>
                 </figcaption>
             </figure>
         </div>

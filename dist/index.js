@@ -38,7 +38,7 @@ var vm = new Vue({
         items: [],
         addToCartBtn: "Add to cart",
         showCart: false,
-        isInCart: 'Item was added to cart',
+        isInCart: 'In cart',
         sortType: 'sort',
         sortOptions: [{ text: 'sort by', value: 'sort' }, { text: 'name', value: 'name' }, { text: 'price', value: 'price' }]
     },
