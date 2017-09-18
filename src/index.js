@@ -20,7 +20,7 @@ Vue.component('shopping-cart', {
         addOne: item => {
             item.quantity++;
         },
-        removeOne: item => {
+        subtractOne: item => {
             item.quantity--;
         }
     }

@@ -39,13 +39,13 @@
                             <td data-label="Quantity" class="cart-table-row__cell cart-buttons">
                                 <span class="cart-buttons__quantity">{{ item.quantity }}</span>
                                 <div class="cart-buttons__wrapper cart-buttons-wrapper">
-                                    <a href="#" class="cart-buttons-wrapper--add" @click.prevent="addOne(item)">+</a>
-                                    <a href="#" class="cart-buttons-wrapper--subtract" v-if="item.quantity > 1" @click.prevent="removeOne(item)">-</a>
+                                    <a href="#" class="cart-buttons-wrapper--add" @click.prevent="addOne(item)" title="add one item">+</a>
+                                    <a href="#" class="cart-buttons-wrapper--subtract" v-if="item.quantity > 1" @click.prevent="subtractOne(item)" title="subtract one item">-</a>
                                 </div>
                             </td>
                             <td data-label="Price" class="cart-table-row__cell">{{ item.price | addCurrency }}</td>
                             <td data-label="Remove?" class="cart-table-row__cell cart-buttons">
-                                <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(index)"><img src="dist/img/remove.svg" alt="remove" class="cart-buttons--remove__img"></a>
+                                <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(index)" title="remove item from cart"><img src="dist/img/remove.svg" alt="remove" class="cart-buttons--remove__img"></a>
                             </td>
                         </tr>
                     </tbody>
@@ -54,8 +54,8 @@
                             <td class="cart-table-row__cell cart-table-row__empty" colspan="4">Shopping cart is empty</td>
                         </tr>
                         <tr v-else>
-                            <td class="cart-table-row__cell cart-table__total" colspan="2">Cart Total</td>
-                            <td class="cart-table-row__cell cart-table__total" colspan="3">{{ total | addCurrency }}</td>
+                            <td class="cart-table-row__cell cart-table__total" colspan="3">Cart Total</td>
+                            <td class="cart-table-row__cell cart-table__total" colspan="2">{{ total | addCurrency }}</td>
                         </tr>
                     </tfoot>
                 </table>
