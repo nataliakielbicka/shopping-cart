@@ -252,7 +252,11 @@ body {
             background-size: 100% auto;
             min-height: 400px;
             @extend %transition;
-            @media all and (min-width: 768px) and (max-width: 1199px) and (min-width: 1400px) {
+            @media all and (min-width: 768px) and (max-width: 1199px) {
+                background-position: top center;
+                min-height: 400px;
+            }
+            @media all and (min-width: 1400px) {
                 background-position: top center;
                 min-height: 400px;
             }
