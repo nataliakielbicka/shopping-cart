@@ -19,7 +19,6 @@ Vue.component('shopping-cart', {
             this.items.map(function (item) {
                 total += item.price * item.quantity;
             });
-            //console.log(this.items)
             return total;
         }
     },
