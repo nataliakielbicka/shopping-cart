@@ -58,12 +58,18 @@ body {
         text-shadow: 1px 1px 10px $main;
     }
     .header__heading {
-        font-size: 60px;
+        font-size: 30px;
         letter-spacing: 2px;
         text-transform: uppercase;
+        @media all and (min-width: 992px) {
+            font-size: 45px;
+        }
     }
     .header__subheading {
-        font-size: 40px;
+        font-size: 20px;
+        @media all and (min-width: 992px) {
+            font-size: 35px;
+        }
     }
 }
 
