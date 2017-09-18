@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+$main: #222;
 html,
 body {
     margin: 0 !important;
@@ -23,6 +24,25 @@ body {
     background-size: cover;
 }
 
+%transition {
+    transition: all 0.5s ease-in;
+}
+
+%center-abs {
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+}
+
+@mixin abs($top, $right, $bottom, $left) {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    position: absolute;
+}
+
 .header {
     @extend %bg;
     background-image: url(../img/header.jpg);
@@ -35,7 +55,7 @@ body {
     .header__subheading {
         color: #fff;
         margin: 0 0 0 10%;
-        text-shadow: 1px 1px 10px #000;
+        text-shadow: 1px 1px 10px $main;
     }
     .header__heading {
         font-size: 60px;
@@ -83,7 +103,7 @@ body {
         background-position: right 10px center;
         background-repeat: no-repeat;
         background-size: 20px auto;
-        border: 1px solid #ccc;
+        border: 1px solid $main;
         display: block;
         font-size: 20px;
         margin: 0 auto 30px auto;
@@ -122,20 +142,19 @@ body {
             flex: 1 0 24%;
         }
         &:hover {
-            transition: all 0.5s ease-in;
+            @extend %transition;
             .products-image__image {
                 background-size: 120% auto;
-                transition: 0.5s ease-in;
+                @extend %transition;
             }
             &:before {
-                position: absolute;
                 content: "";
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
                 background-color: rgba(#fff, 0.85);
-                transition: 0.5s ease-in;
+                @extend %transition;
+                @include abs(0,
+                0,
+                0,
+                0);
                 z-index: 10;
             }
             .products-caption {
@@ -143,10 +162,8 @@ body {
                     color: #fff;
                     transition: bottom 0.5s ease-in;
                     visibility: visible;
-                    margin: auto;
-                    left: 0;
-                    right: 0;
                     bottom: calc(50% - 50px);
+                    @extend %center-abs;
                 }
             }
         }
@@ -174,18 +191,15 @@ body {
         &__price {
             color: #888;
             font-size: 25px;
-            position: absolute;
             bottom: 15px;
-            left: 0;
-            right: 0;
-            margin: auto;
+            @extend %center-abs;
         }
         &__btn {
             bottom: 0;
             width: 100px;
             height: 100px;
-            background-color: #000;
-            border: 2px solid #000;
+            background-color: $main;
+            border: 2px solid $main;
             border-radius: 50%;
             color: #fff;
             display: block;
@@ -205,12 +219,9 @@ body {
                 &:before {
                     font-family: FontAwesome;
                     content: "\f00c";
-                    position: absolute;
                     bottom: 20px;
-                    left: 0;
-                    right: 0;
-                    margin: auto;
                     font-size: 16px;
+                    @extend %center-abs;
                 }
             }
         }
@@ -223,7 +234,7 @@ body {
             background-repeat: no-repeat;
             background-size: 100% auto;
             min-height: 400px;
-            transition: all 0.5s ease-in;
+            @extend %transition;
             @media all and (min-width: 768px) and (max-width: 1199px) and (min-width: 1400px) {
                 background-position: top center;
                 min-height: 400px;
@@ -250,7 +261,7 @@ body {
         position: absolute;
         right: 5px;
         top: 5px;
-        background-color: #000;
+        background-color: $main;
         border-radius: 50%;
         width: 20px;
         height: 20px;
@@ -274,11 +285,11 @@ body {
         position: absolute;
         right: 1%;
         left: 1%;
+        top: 60px;
         font: {
             size: 18px;
         }
         width: 98%;
-        top: 60px;
         text-align: center;
         z-index: 100;
         border-collapse: collapse;
@@ -343,7 +354,7 @@ body {
 
 .cart-table__row--head {
     .cart-table-row__cell {
-        background-color: #000;
+        background-color: $main;
         color: #fff;
         font: {
             size: 18px;
@@ -353,6 +364,6 @@ body {
 }
 
 .cart-table-row__cell {
-    border: 1px solid #000;
+    border: 1px solid $main;
     padding: 6px;
 }
