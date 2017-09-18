@@ -97,7 +97,9 @@ body {
 .sort-by {
     clear: both;
     &__select {
+        -webkit-appearance: none;
         -moz-appearance: none;
+        appearance: none;
         background-color: #fff;
         background-image: url("../../dist/img/select.svg");
         background-position: right 10px center;
