@@ -301,24 +301,32 @@ body {
 }
 
 .cart {
+    border: 1px solid $main;
+    box-shadow: 1px 1px 10px #555;
+    max-height: 520px;
+    overflow-y: scroll;
+    position: fixed;
+    z-index: 9999;
+    top: 64px;
+    right: 0;
+    @media all and (min-width: 1200px) {
+        height: auto;
+        overflow: auto;
+    }
     &__table {
-        width: 98%;
+        width: 100%;
         background-color: #fff;
         box-shadow: 1px 1px 10px #666;
         border-collapse: collapse;
-        @include abs(60px,
-        1%,
-        auto,
-        1%);
         table-layout: fixed;
         text-align: center;
-        z-index: 999;
-        position: fixed;
         right: 0;
-        top: 65px;
         @media all and (min-width: 1200px) {
             max-width: 80%;
             left: auto;
+            max-height: auto;
+            position: fixed;
+            right: 0;
         }
     }
     &-buttons {
