@@ -69,6 +69,7 @@ body {
     &__single-product {
         width: 100%;
         flex: 1 0 100%;
+        align-items: stretch;
         margin: 20px 0;
         padding: 0 20px;
         position: relative;
@@ -87,7 +88,7 @@ body {
         &:hover {
             transition: all 0.5s ease-in;
             .products-image__image {
-                background-size: 100% auto;
+                background-size: 120% auto;
                 transition: 0.5s ease-in;
             }
             &:before {
@@ -116,17 +117,24 @@ body {
     }
     .products-caption {
         margin: 0 0 20px 0;
-        padding: 15px 15px 50px 15px;
+        padding: 15px 15px 30px 15px;
         text-align: center;
+        @media all and (min-width: 992px) {
+            padding: 15px 15px 50px 15px;
+        }
         &__name,
         &__price,
         &__btn {
             display: block;
         }
         &__name {
+            font-size: 18px;
             margin: 0;
             text-transform: uppercase;
-            @media all and (min-width: 992px) {
+            @media all and (min-width: 1200px) and (max-width: 1399px) {
+                font-size: 23px;
+            }
+            @media all and (min-width: 1400px) {
                 font-size: 25px;
             }
         }
@@ -178,12 +186,12 @@ body {
         &__image {
             width: 100%;
             display: block;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
-            background-size: 90% auto;
+            background-size: 100% auto;
             min-height: 400px;
             transition: all 0.5s ease-in;
-            @media all and (min-width: 600px) {
+            @media all and (min-width: 768px) and (max-width: 1199px) and (min-width: 1400px) {
                 background-position: top center;
                 min-height: 400px;
             }
