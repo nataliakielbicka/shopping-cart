@@ -111,7 +111,10 @@ body {
         margin: 0 auto 30px auto;
         height: 45px;
         padding: 5px;
-        width: 30%;
+        width: 80%;
+        @media all and (min-width: 600px) {
+            width: 30%;
+        }
     }
 }
 
@@ -245,10 +248,6 @@ body {
     }
 }
 
-.cart-table-row__image {
-    height: 150px;
-}
-
 .cart-icon {
     width: 60px;
     cursor: pointer;
@@ -260,15 +259,16 @@ body {
         max-width: 40px;
     }
     &__nr {
-        position: absolute;
-        right: 5px;
-        top: 5px;
+        width: 20px;
+        @include abs(5px,
+        5px,
+        auto,
+        auto);
         background-color: $main;
         border-radius: 50%;
-        width: 20px;
-        height: 20px;
         color: #fff;
         display: block;
+        height: 20px;
         font: {
             size: 15px;
             weight: bold;
@@ -282,19 +282,20 @@ body {
 .cart {
     position: relative;
     &__table {
+        width: 98%;
         background-color: #fff;
         box-shadow: 1px 1px 10px #666;
-        position: absolute;
-        right: 1%;
-        left: 1%;
-        top: 60px;
+        border-collapse: collapse;
+        @include abs(60px,
+        1%,
+        auto,
+        1%);
         font: {
             size: 18px;
         }
-        width: 98%;
+        table-layout: fixed;
         text-align: center;
         z-index: 100;
-        border-collapse: collapse;
         @media all and (min-width: 1200px) {
             max-width: 80%;
             left: auto;
@@ -304,53 +305,73 @@ body {
         position: relative;
         &__quantity {
             float: left;
-            @media all and (max-width: 992px) {
-                float: none;
-            }
-            width: 60px;
             font: {
                 size: 18px;
                 weight: bold;
             }
+            width: 60px;
+            @media all and (max-width: 767px) {
+                float: none;
+            }
         }
         &--remove {
             display: block;
+            overflow: hidden;
             &__img {
                 display: block;
-                margin: auto;
+                float: right;
                 max-width: 30px;
+                @media all and (min-width: 768px) {
+                    float: none;
+                    margin: auto;
+                }
             }
         }
         &-wrapper {
-            float: left;
-            position: absolute;
-            right: 30px;
-            top: 50%;
-            transform: translate(0, -50%);
+            position: relative;
+            @media all and (min-width: 768px) {
+                float: left;
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+            @media all and (min-width: 768px) and (max-width: 991px) {
+                right: 17px;
+            }
+            @media all and (min-width: 992px) {
+                right: 30px;
+            }
             &--add,
             &--subtract {
                 color: #fff;
-                background-color: green;
-                display: block;
+                background-color: $main;
+                border: 1px solid $main;
+                display: inline-block;
                 margin: 10px auto;
                 width: 30px;
                 height: 30px;
+                text-align: center;
                 text-decoration: none;
                 font: {
                     size: 25px;
                     weight: bold;
                 }
-                @media all and (max-width: 992px) {
-                    display: inline-block;
+                &:hover {
+                    color: $main;
+                    background-color: #fff;
+                    border: 1px solid $main;
+                    @extend %transition;
+                }
+                @media all and (min-width: 768px) {
+                    display: block;
                 }
             }
         }
     }
     &-table__total {
-        font: {
-            size: 25px;
-            weight: bold;
-        }
+        background-color: rgba($main, 0.95);
+        color: #fff;
+        font-size: 25px;
     }
 }
 
@@ -365,7 +386,46 @@ body {
     }
 }
 
-.cart-table-row__cell {
-    border: 1px solid $main;
-    padding: 6px;
+.cart-table-row {
+    &__cell {
+        border: 1px solid $main;
+        font-size: 20px;
+        padding: 6px;
+    }
+    &__image {
+        max-height: 90px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .cart-table__row--head {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    .cart-table-row {
+        border-bottom: 4px solid $main;
+        display: block;
+        margin-bottom: .625em;
+        &__cell {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: 15px;
+            text-align: right;
+            &:before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
 }
