@@ -16,7 +16,7 @@
         <h3 class="header__subheading">Check our products</h3>
     </header>
 
-    <main id="shop">
+    <main id="shop" class="container">
 
         <a href="#" @click.prevent="toggleCart" class="cart-icon" title="view shopping cart"><img src="dist/img/cart.svg" alt="remove" class="cart-icon__img"><span class="cart-icon__nr">{{ cartItems.length }}</span>
         </a>
@@ -62,9 +62,11 @@
             </div>
         </shopping-cart>
 
-        <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType">
-            <option v-for="item in sortOptions" :value="item.value">{{ item.text }}</option>
-        </select>
+        <div class="sort-by">
+            <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType" class="sort-by__select">
+                <option v-for="item in sortOptions" :value="item.value">{{ item.text }}</option>
+            </select>
+        </div>
 
         <div class="products">
             <figure v-for="item in items" class="products__single-product">
