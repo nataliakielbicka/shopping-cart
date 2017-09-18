@@ -63,6 +63,7 @@ var vm = new Vue({
         },
         addToCart: function addToCart(itemToAdd) {
             var found = false;
+            this.showCart = true;
             this.cartItems.forEach(function (item) {
                 if (item.id === itemToAdd.id) {
                     found = true;
