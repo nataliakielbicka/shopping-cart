@@ -62,6 +62,11 @@
             </div>
         </shopping-cart>
 
+        <div class="desc">
+            <h2 class="desc__heading">Latest products</h2>
+            <p class="desc__description">See our latest product</p>
+        </div>
+
         <div class="sort-by">
             <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType" class="sort-by__select">
                 <option v-for="item in sortOptions" :value="item.value">{{ item.text }}</option>
