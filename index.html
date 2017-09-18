@@ -29,7 +29,7 @@
                             <th class="cart-table-row__cell">Image</th>
                             <th class="cart-table-row__cell">Name</th>
                             <th class="cart-table-row__cell">Quantity</th>
-                            <th class="cart-table-row__cell">Single price</th>
+                            <th class="cart-table-row__cell">Partial price</th>
                             <th class="cart-table-row__cell">Remove?</th>
                         </tr>
                     </thead>
@@ -44,7 +44,7 @@
                                     <a href="#" class="cart-buttons-wrapper--subtract" v-if="item.quantity > 1" @click.prevent="subtractOne(item)" title="subtract one item">-</a>
                                 </div>
                             </td>
-                            <td data-label="Price" class="cart-table-row__cell">{{ item.price | addCurrency }}</td>
+                            <td data-label="Partial price" class="cart-table-row__cell">{{ item.price * item.quantity | addCurrency }}</td>
                             <td data-label="Remove?" class="cart-table-row__cell cart-buttons">
                                 <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(index)" title="remove item from cart"><img src="dist/img/remove.svg" alt="remove" class="cart-buttons--remove__img"></a>
                             </td>
