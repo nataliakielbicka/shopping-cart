@@ -51,8 +51,13 @@
                         </tr>
                     </tbody>
                     <tfoot>
+                        <tr v-if="items.length">
+                            <td class="cart-table-row__cell" colspan="5">
+                                <a v-if="items.length" href="#" @click.prevent="removeAll" class="cart-table-row__link" title="remove all">Remove all items from the cart</a>
+                            </td>
+                        </tr>
                         <tr v-if="!items.length" class="cart-table__row cart-table-row">
-                            <td class="cart-table-row__cell cart-table-row__empty" colspan="4">Shopping cart is empty</td>
+                            <td class="cart-table-row__cell" colspan="4">Shopping cart is empty</td>
                         </tr>
                         <tr v-else>
                             <td class="cart-table-row__cell cart-table__total" colspan="3">Cart Total</td>

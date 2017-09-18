@@ -4,12 +4,18 @@ Vue.filter('addCurrency', val => val.toFixed(2) + ' $');
 
 Vue.component('shopping-cart', {
     props: ['items'],
+    data: function() {
+        return {
+            item: this.items
+        };
+    },
     computed: {
         total: function() {
             let total = 0;
-            this.items.forEach(item => {
+            this.items.map(item => {
                 total += (item.price * item.quantity);
             });
+            //console.log(this.items)
             return total;
         }
     },
@@ -22,9 +28,12 @@ Vue.component('shopping-cart', {
         },
         subtractOne: item => {
             item.quantity--;
+        },
+        removeAll() {
+            return this.item.splice(0, this.item.length);
         }
     }
-})
+});
 
 const vm = new Vue({
     el: '#shop',
@@ -74,13 +83,14 @@ const vm = new Vue({
         },
         itemInCart(itemInCart) {
             let inCart = false;
-            this.cartItems.forEach(item => {
+            this.cartItems.map(item => {
                 if (item.id === itemInCart.id) {
                     inCart = true;
                 }
             });
             if (inCart === false) {
                 return this.isInCart;
+
             }
         }
     }

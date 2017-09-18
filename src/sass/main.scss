@@ -309,9 +309,9 @@ body {
     z-index: 9999;
     top: 64px;
     right: 0;
-    @media all and (min-width: 1200px) {
+    @media all and (min-width: 768px) {
         height: auto;
-        overflow: auto;
+        overflow-y: auto;
     }
     &__table {
         width: 100%;
@@ -322,7 +322,7 @@ body {
         text-align: center;
         right: 0;
         @media all and (min-width: 1200px) {
-            max-width: 80%;
+            max-width: 50%;
             left: auto;
             max-height: auto;
             position: fixed;
@@ -339,7 +339,7 @@ body {
             }
             width: 60px;
             @media all and (min-width: 768px) {
-                float: none;
+                float: left;
             }
         }
         &--remove {
@@ -368,7 +368,7 @@ body {
                 right: 17px;
             }
             @media all and (min-width: 992px) {
-                right: 30px;
+                right: 15px;
             }
             &--add,
             &--subtract {
@@ -419,6 +419,10 @@ body {
     }
     &__image {
         max-height: 90px;
+    }
+    &__link {
+        color: $main;
+        font-weight: bold;
     }
 }
 
