@@ -1,6 +1,6 @@
 const apiURL = 'https://api.myjson.com/bins/1etx1x';
 
-Vue.filter("addCurrency", val => val.toFixed(2) + ' $');
+Vue.filter('addCurrency', val => val.toFixed(2) + ' $');
 
 Vue.component('shopping-cart', {
     props: ['items'],
@@ -31,7 +31,7 @@ const vm = new Vue({
     data: {
         cartItems: [],
         items: [],
-        addToCartBtn: "Add to cart",
+        addToCartBtn: 'Add to cart',
         showCart: false,
         isInCart: 'In cart',
         sortType: 'sort',
@@ -84,4 +84,4 @@ const vm = new Vue({
             }
         }
     }
-})
+});
