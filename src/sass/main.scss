@@ -73,6 +73,10 @@ body {
     }
 }
 
+[v-cloak] {
+    display: none;
+}
+
 .container {
     margin: 0 auto;
     @media all and (min-width: 1400px) {
