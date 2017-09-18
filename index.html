@@ -79,8 +79,12 @@
             </select>
         </div>
 
+        <form class="search">
+            Search <input v-model="search" placeholder="search by name">
+        </form>
+
         <div class="products">
-            <figure v-for="item in items" class="products__single-product">
+            <figure v-for="item in products" class="products__single-product">
                 <div class="products__img-wrapper products-image">
                     <div class="products-image__image" :style='{ backgroundImage: " url( " + item.img + ") ", }'></div>
                 </div>

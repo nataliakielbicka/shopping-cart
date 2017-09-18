@@ -47,11 +47,20 @@ var vm = new Vue({
         addToCartBtn: 'Add to cart',
         showCart: false,
         isInCart: 'In cart',
+        search: '',
         sortType: 'sort',
         sortOptions: [{ text: 'sort by', value: 'sort' }, { text: 'name', value: 'name' }, { text: 'price', value: 'price' }]
     },
     created: function created() {
         this.fetchData();
+    },
+    computed: {
+        products: function products() {
+            var self = this;
+            return this.items.filter(function (item) {
+                return item.name.toLowerCase().indexOf(self.search.toLowerCase()) >= 0;
+            });
+        }
     },
     methods: {
         fetchData: function fetchData() {
