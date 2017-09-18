@@ -51,13 +51,13 @@ body {
     justify-content: center;
     flex-direction: column;
     height: 50vh;
-    .header__heading,
-    .header__subheading {
+    &__heading,
+    &__subheading {
         color: #fff;
         margin: 0 0 0 10%;
         text-shadow: 1px 1px 10px $main;
     }
-    .header__heading {
+    &__heading {
         font-size: 30px;
         letter-spacing: 2px;
         text-transform: uppercase;
@@ -65,7 +65,7 @@ body {
             font-size: 45px;
         }
     }
-    .header__subheading {
+    &__subheading {
         font-size: 20px;
         @media all and (min-width: 992px) {
             font-size: 35px;
@@ -130,6 +130,7 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0 0 150px 0;
     @media all and (min-width: 600px) {
         flex-direction: row;
     }
@@ -256,12 +257,17 @@ body {
 }
 
 .cart-icon {
+    background-color: $main;
+    box-shadow: 1px 1px 10px #555;
     width: 60px;
     cursor: pointer;
     display: block;
     float: right;
     padding: 10px;
-    position: relative;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
     &__img {
         max-width: 40px;
     }
@@ -271,9 +277,9 @@ body {
         5px,
         auto,
         auto);
-        background-color: $main;
+        background-color: #fff;
         border-radius: 50%;
-        color: #fff;
+        color: $main;
         display: block;
         height: 20px;
         font: {
@@ -287,7 +293,6 @@ body {
 }
 
 .cart {
-    position: relative;
     &__table {
         width: 98%;
         background-color: #fff;
@@ -299,7 +304,10 @@ body {
         1%);
         table-layout: fixed;
         text-align: center;
-        z-index: 100;
+        z-index: 999;
+        position: fixed;
+        right: 0;
+        top: 65px;
         @media all and (min-width: 1200px) {
             max-width: 80%;
             left: auto;
@@ -430,5 +438,17 @@ body {
                 border-bottom: 0;
             }
         }
+    }
+}
+
+.footer {
+    background-color: $main;
+    padding: 5px;
+    &__copy {
+        color: #fff;
+        display: block;
+        line-height: normal;
+        width: 100%;
+        text-align: center;
     }
 }

@@ -18,8 +18,9 @@
 
     <main id="shop" class="container">
 
-        <a href="#" @click.prevent="toggleCart" class="cart-icon" title="view shopping cart"><img src="dist/img/cart.svg" alt="remove" class="cart-icon__img"><span class="cart-icon__nr">{{ cartItems.length }}</span>
+        <a href="#" @click.prevent="toggleCart" class="cart-icon" title="view shopping cart"><img src="dist/img/cart-icon.svg" alt="remove" class="cart-icon__img"><span class="cart-icon__nr">{{ cartItems.length }}</span>
         </a>
+
         <shopping-cart inline-template :items="cartItems" v-if="showCart">
             <div class="cart">
                 <table class="cart__table">
