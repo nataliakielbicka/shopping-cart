@@ -35,7 +35,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(item,index) in items" class="cart-table__row cart-table__row--body cart-table-row">
-                            <td data-label="Image" class="cart-table-row__cell"><img :src="item.img" alt="item.id" class="cart-table-row__image"></td>
+                            <td data-label="Image" class="cart-table-row__cell"><img :src="item.img" :alt="item.id" class="cart-table-row__image"></td>
                             <td data-label="Name" class="cart-table-row__cell">{{ item.name }}</td>
                             <td data-label="Quantity" class="cart-table-row__cell cart-buttons">
                                 <span class="cart-buttons__quantity">{{ item.quantity }}</span>
@@ -57,7 +57,7 @@
                             </td>
                         </tr>
                         <tr v-if="!items.length" class="cart-table__row cart-table-row">
-                            <td class="cart-table-row__cell" colspan="4">Shopping cart is empty</td>
+                            <td class="cart-table-row__cell" colspan="5">Shopping cart is empty</td>
                         </tr>
                         <tr v-else>
                             <td class="cart-table-row__cell cart-table__total" colspan="3">Cart Total</td>
