@@ -148,7 +148,10 @@ body {
     width: 100%;
     margin: 20px auto;
     @extend %flex-center;
-    @media all and (min-width: 800px) {
+    @media all and (min-width: 320px) and (max-width: 400px) {
+        width: 70%;
+    }
+    @media all and (min-width: 992px) {
         display: inline-block;
         width: 50%;
         float: left;
@@ -158,6 +161,9 @@ body {
         @extend %input;
         display: inline-block;
         margin: 0 0 0 20px;
+        @media all and (min-width: 320px) and (max-width: 400px) {
+            width: 100%;
+        }
     }
 }
 
@@ -165,12 +171,20 @@ body {
     clear: both;
     margin: 0 auto 40px auto;
     @extend %flex-center;
-    @media all and (min-width: 800px) {
+    @media all and (min-width: 992px) {
         clear: none;
         display: block;
         float: right;
         margin: 30px 10px;
+    }
+    @media all and (min-width: 992px) and (max-width: 1199px) {
         width: 45%;
+    }
+    @media all and (min-width: 1200px) {
+        width: 30%;
+    }
+    &__label {
+        line-height: 45px;
     }
     &__select {
         -webkit-appearance: none;
@@ -181,10 +195,16 @@ body {
         background-position: right 10px center;
         background-repeat: no-repeat;
         background-size: 20px auto;
-        display: inline-block;
+        float: right;
         margin: 0 0 0 20px;
-        width: 70%;
+        width: 75%;
         @extend %input;
+        @media all and (min-width: 320px) and (max-width: 400px) {
+            width: 70%;
+        }
+        @media all and (min-width: 992px) {
+            margin: 0;
+        }
     }
 }
 
@@ -209,12 +229,12 @@ body {
             margin: 1% 0.5% 2% 0.5%;
         }
         @media all and (min-width: 600px) and (max-width: 767px) {
-            flex: 1 0 48%;
-            max-width: 48%;
+            flex: 1 0 49%;
+            max-width: 49%;
         }
         @media all and (min-width: 768px) and (max-width: 1199px) {
-            flex: 1 0 30%;
-            max-width: 30%;
+            flex: 1 0 32%;
+            max-width: 32%;
         }
         @media all and (min-width: 1200px) {
             flex: 1 0 24%;
