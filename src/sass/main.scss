@@ -13,9 +13,12 @@ body {
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    font-size: 20px;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 17px;
     overflow-x: hidden;
+    @media all and (min-width: 768px) {
+        font-size: 20px;
+    }
 }
 
 %bg {
@@ -124,18 +127,23 @@ body {
 
 %input {
     border: 1px solid $main;
+    font-family: 'Comfortaa', sans-serif;
     font-size: 20px;
     height: 45px;
     padding: 5px;
 }
 
-.search {
-    width: 100%;
-    margin: auto;
+%flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
-    @media all and (min-width: 650px) {
+}
+
+.search {
+    width: 100%;
+    margin: 20px auto;
+    @extend %flex-center;
+    @media all and (min-width: 800px) {
         display: inline-block;
         width: 50%;
         float: left;
@@ -149,12 +157,15 @@ body {
 }
 
 .sort-by {
-    width: 80%;
-    margin: 20px auto;
-    @media all and (min-width: 650px) {
+    clear: both;
+    margin: 0 auto 40px auto;
+    @extend %flex-center;
+    @media all and (min-width: 800px) {
+        clear: none;
+        display: block;
         float: right;
         margin: 30px 10px;
-        width: 30%;
+        width: 45%;
     }
     &__select {
         -webkit-appearance: none;
@@ -165,8 +176,9 @@ body {
         background-position: right 10px center;
         background-repeat: no-repeat;
         background-size: 20px auto;
-        display: block;
-        width: 100%;
+        display: inline-block;
+        margin: 0 0 0 20px;
+        width: 70%;
         @extend %input;
     }
 }
@@ -267,21 +279,21 @@ body {
             color: #fff;
             display: block;
             font: {
-                size: 20px;
+                size: 18px;
                 weight: bold;
             }
             margin: auto;
             opacity: 0;
-            padding: 23px 17px;
+            padding: 17px 17px;
             text-align: center;
             text-decoration: none;
             z-index: 99;
             &--incart {
-                padding: 30px 18px;
+                padding: 17px 18px;
                 &:before {
                     font-family: FontAwesome;
                     content: "\f00c";
-                    bottom: 20px;
+                    bottom: 15px;
                     font-size: 16px;
                     @extend %center-abs;
                 }

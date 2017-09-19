@@ -45,7 +45,7 @@ const vm = new Vue({
         search: '',
         sortType: 'sort',
         sortOptions: [
-            { text: 'sort by', value: 'sort' },
+            { text: 'choose', value: 'sort' },
             { text: 'name', value: 'name' },
             { text: 'price', value: 'price' }
         ]

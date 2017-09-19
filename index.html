@@ -5,19 +5,18 @@
     <meta charset="UTF-8">
     <title>Clothes Shop - Natalia Kiełbicka</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Nunito&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dist/css/main.min.css"> </head>
+    <link rel="stylesheet" href="dist/css/main.min.css">
+</head>
 
 <body>
-
     <header class="header">
         <h1 class="header__heading">Women's Fashion</h1>
         <h3 class="header__subheading">We have all you need to turn heads wherever you go</h3>
     </header>
 
     <main id="shop" class="container" v-cloak>
-
         <a href="#" @click.prevent="toggleCart" class="cart-icon" title="view shopping cart"><img src="dist/img/cart-icon.svg" alt="remove" class="cart-icon__img"><span class="cart-icon__nr">{{ cartItems.length }}</span>
         </a>
 
@@ -78,8 +77,8 @@
                 <label for="search" class="search__label">Search:</label>
                 <input v-model="search" placeholder="product name" class="search__input">
             </form>
-
             <div class="sort-by">
+                <label for="sortBy" class="sort-by__label">Sort by:</label>
                 <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType" class="sort-by__select">
                     <option v-for="item in sortOptions" :value="item.value">{{ item.text }}</option>
                 </select>
@@ -104,6 +103,7 @@
     <footer class="footer">
         <small class="footer__copy">&copy; 2017 by Natalia Kiełbicka</small>
     </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="dist/index.js"></script>

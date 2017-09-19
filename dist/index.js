@@ -49,7 +49,7 @@ var vm = new Vue({
         isInCart: 'In cart',
         search: '',
         sortType: 'sort',
-        sortOptions: [{ text: 'sort by', value: 'sort' }, { text: 'name', value: 'name' }, { text: 'price', value: 'price' }]
+        sortOptions: [{ text: 'choose', value: 'sort' }, { text: 'name', value: 'name' }, { text: 'price', value: 'price' }]
     },
     created: function created() {
         this.fetchData();
