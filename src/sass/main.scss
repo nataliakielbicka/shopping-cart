@@ -325,7 +325,8 @@ body {
     }
 }
 
-.cart {
+//.cart-table
+.cart-table-wrapper {
     border: 1px solid $main;
     box-shadow: 1px 1px 10px #555;
     max-height: 520px;
@@ -338,112 +339,103 @@ body {
         height: auto;
         overflow-y: auto;
     }
-    &__table {
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 1px 1px 10px #666;
-        border-collapse: collapse;
-        table-layout: fixed;
-        text-align: center;
+}
+
+.cart-table {
+    width: calc(100% - 1px);
+    background-color: #fff;
+    box-shadow: 1px 1px 10px #666;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+    right: 0;
+    @media all and (min-width: 1200px) {
+        max-width: 50%;
+        left: auto;
+        max-height: auto;
+        position: fixed;
         right: 0;
-        @media all and (min-width: 1200px) {
-            max-width: 50%;
-            left: auto;
-            max-height: auto;
-            position: fixed;
-            right: 0;
+    }
+    &-header {
+        &__heading {
+            background-color: $main;
+            color: #fff;
+            font-weight: bold;
+            padding: 6px;
         }
     }
-    &-buttons {
+    &__quantity {
+        float: right;
+        font: {
+            size: 18px;
+            weight: bold;
+        }
+        width: 60px;
+        @media all and (min-width: 768px) {
+            float: left;
+        }
+    }
+    .buttons {
         position: relative;
-        &__quantity {
-            float: right;
+        clear: both;
+        @media all and (min-width: 768px) {
+            float: left;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        @media all and (min-width: 768px) and (max-width: 991px) {
+            right: 17px;
+        }
+        @media all and (min-width: 992px) {
+            right: 15px;
+        }
+        &__btn {
+            color: #fff;
+            background-color: $main;
+            border: 1px solid $main;
+            display: inline-block;
+            margin: 10px auto;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            text-decoration: none;
             font: {
-                size: 18px;
+                size: 25px;
                 weight: bold;
             }
-            width: 60px;
-            @media all and (min-width: 768px) {
-                float: left;
-            }
-        }
-        &--remove {
-            display: block;
-            overflow: hidden;
-            &__img {
-                display: block;
-                float: right;
-                max-width: 30px;
-                @media all and (min-width: 768px) {
-                    float: none;
-                    margin: auto;
-                }
-            }
-        }
-        &-wrapper {
-            position: relative;
-            clear: both;
-            @media all and (min-width: 768px) {
-                float: left;
-                position: absolute;
-                top: 50%;
-                transform: translate(0, -50%);
-            }
-            @media all and (min-width: 768px) and (max-width: 991px) {
-                right: 17px;
-            }
-            @media all and (min-width: 992px) {
-                right: 15px;
-            }
-            &--add,
-            &--subtract {
-                color: #fff;
-                background-color: $main;
+            &:hover {
+                color: $main;
+                background-color: #fff;
                 border: 1px solid $main;
-                display: inline-block;
-                margin: 10px auto;
-                width: 30px;
-                height: 30px;
-                text-align: center;
-                text-decoration: none;
-                font: {
-                    size: 25px;
-                    weight: bold;
-                }
-                &:hover {
-                    color: $main;
-                    background-color: #fff;
-                    border: 1px solid $main;
-                    @extend %transition;
-                }
-                @media all and (min-width: 768px) {
-                    display: block;
-                }
+                @extend %transition;
+            }
+            @media all and (min-width: 768px) {
+                display: block;
             }
         }
     }
-    &-table__total {
-        background-color: rgba($main, 0.95);
-        color: #fff;
-        font-size: 25px;
-    }
-}
-
-.cart-table__row--head {
-    .cart-table-row__cell {
-        background-color: $main;
-        color: #fff;
-        font-weight: bold;
-    }
-}
-
-.cart-table-row {
     &__cell {
         border: 1px solid $main;
         padding: 6px;
+        position: relative;
+        &--total {
+            background-color: rgba($main, 0.95);
+            color: #fff;
+            font-size: 25px;
+        }
     }
     &__image {
         max-height: 90px;
+        &--remove {
+            display: block;
+            float: right;
+            max-width: 30px;
+            @media all and (min-width: 768px) {
+                float: none;
+                margin: auto;
+            }
+        }
     }
     &__link {
         color: $main;
@@ -452,21 +444,23 @@ body {
 }
 
 @media all and (max-width: 767px) {
-    .cart-table__row--head {
-        border: none;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
-    .cart-table-row {
-        border-bottom: 4px solid $main;
-        display: block;
-        &:last-child {
-            margin-bottom: 0;
+    .cart-table {
+        &-header {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        &__row {
+            border-bottom: 4px solid $main;
+            display: block;
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
         &__cell {
             border-bottom: 1px solid #ddd;
@@ -481,6 +475,7 @@ body {
             }
             &:last-child {
                 border-bottom: 0;
+                overflow: hidden;
             }
         }
     }

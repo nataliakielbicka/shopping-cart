@@ -22,46 +22,46 @@
         </a>
 
         <shopping-cart inline-template :items="cartItems" v-if="showCart">
-            <div class="cart">
-                <table class="cart__table">
+            <div class="cart-table-wrapper">
+                <table class="cart-table">
                     <thead v-if="items.length">
-                        <tr class="cart-table__row cart-table__row--head cart-table-row">
-                            <th class="cart-table-row__cell">Image</th>
-                            <th class="cart-table-row__cell">Name</th>
-                            <th class="cart-table-row__cell">Quantity</th>
-                            <th class="cart-table-row__cell">Partial price</th>
-                            <th class="cart-table-row__cell">Remove?</th>
+                        <tr class="cart-table__header cart-table-header">
+                            <th class="cart-table-header__heading">Image</th>
+                            <th class="cart-table-header__heading">Name</th>
+                            <th class="cart-table-header__heading">Quantity</th>
+                            <th class="cart-table-header__heading">Partial price</th>
+                            <th class="cart-table-header__heading">Remove?</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item,index) in items" class="cart-table__row cart-table__row--body cart-table-row">
-                            <td data-label="Image" class="cart-table-row__cell"><img :src="item.img" :alt="item.id" class="cart-table-row__image"></td>
-                            <td data-label="Name" class="cart-table-row__cell">{{ item.name }}</td>
-                            <td data-label="Quantity" class="cart-table-row__cell cart-buttons">
-                                <span class="cart-buttons__quantity">{{ item.quantity }}</span>
-                                <div class="cart-buttons__wrapper cart-buttons-wrapper">
-                                    <a href="#" class="cart-buttons-wrapper--add" @click.prevent="addOne(item)" title="add one item">+</a>
-                                    <a href="#" class="cart-buttons-wrapper--subtract" v-if="item.quantity > 1" @click.prevent="subtractOne(item)" title="subtract one item">-</a>
+                        <tr v-for="(item,index) in items" class="cart-table__row">
+                            <td data-label="Image" class="cart-table__cell"><img :src="item.img" :alt="item.id" class="cart-table__image"></td>
+                            <td data-label="Name" class="cart-table__cell">{{ item.name }}</td>
+                            <td data-label="Quantity" class="cart-table__cell">
+                                <span class="cart-table__quantity">{{ item.quantity }}</span>
+                                <div class="cart-table__buttons buttons">
+                                    <a href="#" class="buttons__btn" @click.prevent="addOne(item)" title="add one item">+</a>
+                                    <a href="#" class="buttons__btn" v-if="item.quantity > 1" @click.prevent="subtractOne(item)" title="subtract one item">-</a>
                                 </div>
                             </td>
-                            <td data-label="Partial price" class="cart-table-row__cell">{{ item.price * item.quantity | addCurrency }}</td>
-                            <td data-label="Remove?" class="cart-table-row__cell cart-buttons">
-                                <a href="#" class="cart-buttons--remove" @click.prevent="removeItem(index)" title="remove item from cart"><img src="dist/img/remove.svg" alt="remove" class="cart-buttons--remove__img"></a>
+                            <td data-label="Partial price" class="cart-table__cell">{{ item.price * item.quantity | addCurrency }}</td>
+                            <td data-label="Remove?" class="cart-table__cell">
+                                <a href="#" class="cart-table__link" @click.prevent="removeItem(index)" title="remove item from cart"><img src="dist/img/remove.svg" alt="remove" class="cart-table__image cart-table__image--remove"></a>
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr v-if="items.length">
-                            <td class="cart-table-row__cell" colspan="5">
-                                <a v-if="items.length" href="#" @click.prevent="removeAll" class="cart-table-row__link" title="remove all">Remove all items from the cart</a>
+                            <td class="cart-table__cell" colspan="5">
+                                <a v-if="items.length" href="#" @click.prevent="removeAll" class="cart-table__link" title="remove all">Remove all items from the cart</a>
                             </td>
                         </tr>
-                        <tr v-if="!items.length" class="cart-table__row cart-table-row">
-                            <td class="cart-table-row__cell" colspan="5">Shopping cart is empty</td>
+                        <tr v-if="!items.length" class="cart-table__row">
+                            <td class="cart-table__cell" colspan="5">Shopping cart is empty</td>
                         </tr>
                         <tr v-else>
-                            <td class="cart-table-row__cell cart-table__total" colspan="3">Cart Total</td>
-                            <td class="cart-table-row__cell cart-table__total" colspan="2">{{ total | addCurrency }}</td>
+                            <td class="cart-table__cell cart-table__cell--total" colspan="3">Cart Total</td>
+                            <td class="cart-table__cell cart-table__cell--total" colspan="2">{{ total | addCurrency }}</td>
                         </tr>
                     </tfoot>
                 </table>
