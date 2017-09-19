@@ -73,26 +73,29 @@
             <p class="desc__description">See our latest product</p>
         </div>
 
-        <div class="sort-by">
-            <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType" class="sort-by__select">
-                <option v-for="item in sortOptions" :value="item.value">{{ item.text }}</option>
-            </select>
+        <div class="filters">
+            <form class="search">
+                <label for="search" class="search__label">Search</label>
+                <input v-model="search" placeholder="search by name" class="search__input">
+            </form>
+
+            <div class="sort-by">
+                <select name="sortBy" id="sortBy" @change="sortBy(sortType)" v-model="sortType" class="sort-by__select">
+                    <option v-for="item in sortOptions" :value="item.value">{{ item.text }}</option>
+                </select>
+            </div>
         </div>
 
-        <form class="search">
-            Search <input v-model="search" placeholder="search by name">
-        </form>
-
         <div class="products">
-            <figure v-for="item in products" class="products__single-product">
-                <div class="products__img-wrapper products-image">
-                    <div class="products-image__image" :style='{ backgroundImage: " url( " + item.img + ") ", }'></div>
+            <figure v-for="item in products" class="products__item">
+                <div class="products__imgwrapper">
+                    <div class="products__image" :style='{ backgroundImage: " url( " + item.img + ") ", }'></div>
                 </div>
-                <figcaption class="products__caption products-caption">
-                    <h3 class="products-caption__name">{{ item.name }}</h3>
-                    <span class="products-caption__price">{{ item.price | addCurrency }}</span>
-                    <a href="#" class="products-caption__btn products-caption-btn" @click.prevent="addToCart(item)" v-show="itemInCart(item)">{{ addToCartBtn }}</a>
-                    <p v-show="!itemInCart(item)" class="products-caption__btn products-caption__btn--incart">{{ isInCart }}</p>
+                <figcaption class="products__caption caption">
+                    <h3 class="caption__name">{{ item.name }}</h3>
+                    <span class="caption__price">{{ item.price | addCurrency }}</span>
+                    <a href="#" class="caption__btn" @click.prevent="addToCart(item)" v-show="itemInCart(item)">{{ addToCartBtn }}</a>
+                    <p v-show="!itemInCart(item)" class="caption__btn caption__btn--incart">{{ isInCart }}</p>
                 </figcaption>
             </figure>
         </div>
