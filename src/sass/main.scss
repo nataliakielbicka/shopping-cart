@@ -70,6 +70,7 @@ body {
     }
     &__heading {
         font-size: 30px;
+        font-weight: bold;
         letter-spacing: 2px;
         text-transform: uppercase;
         @media all and (min-width: 992px) {
@@ -131,6 +132,10 @@ body {
     font-size: 20px;
     height: 45px;
     padding: 5px;
+    outline: none;
+    &:focus {
+        border: 2px solid $main;
+    }
 }
 
 %flex-center {
@@ -349,7 +354,7 @@ body {
             size: 15px;
             weight: bold;
         }
-        line-height: 20px;
+        line-height: 22px;
         text-align: center;
         text-decoration: none;
     }
