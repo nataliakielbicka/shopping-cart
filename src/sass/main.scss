@@ -103,12 +103,14 @@ body {
     padding: 80px 0 30px 0;
     text-align: center;
     &__heading {
-        font-size: 40px;
+        font-size: 30px;
         margin: 0 0 10px 0;
+        @media all and (min-width: 992px) {
+            font-size: 40px;
+        }
     }
     &__description {
         display: block;
-        // font-size: 25px;
         margin: 20px auto;
         width: 90%;
         @media all and (min-width: 992px) and (max-width: 1199px) {
