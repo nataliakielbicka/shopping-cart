@@ -14,7 +14,7 @@ body {
 
 body {
     font-family: 'Nunito', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     overflow-x: hidden;
 }
 
@@ -47,15 +47,23 @@ body {
     @extend %bg;
     background-image: url(../img/header.jpg);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 50vh;
+    text-align: center;
+    @media all and (min-width: 992px) {
+        align-items: flex-start;
+        text-align: left;
+    }
     &__heading,
     &__subheading {
         color: #fff;
-        margin: 0 0 0 10%;
+        margin: 0 0 10px 0;
         text-shadow: 1px 1px 10px $main;
+        @media all and (min-width: 992px) {
+            margin: 0 0 10px 10%;
+        }
     }
     &__heading {
         font-size: 30px;
@@ -68,7 +76,7 @@ body {
     &__subheading {
         font-size: 20px;
         @media all and (min-width: 992px) {
-            font-size: 35px;
+            font-size: 30px;
         }
     }
 }
@@ -92,15 +100,23 @@ body {
 
 .desc {
     clear: both;
-    padding: 30px 0;
+    padding: 80px 0 30px 0;
     text-align: center;
     &__heading {
         font-size: 40px;
         margin: 0 0 10px 0;
     }
     &__description {
-        font-size: 25px;
-        margin: 0;
+        display: block;
+        // font-size: 25px;
+        margin: 20px auto;
+        width: 90%;
+        @media all and (min-width: 992px) and (max-width: 1199px) {
+            max-width: 60%;
+        }
+        @media all and (min-width: 1200px) {
+            max-width: 42%;
+        }
     }
 }
 
