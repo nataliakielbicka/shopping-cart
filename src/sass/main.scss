@@ -133,7 +133,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0 0 150px 0;
     @media all and (min-width: 600px) {
         flex-direction: row;
