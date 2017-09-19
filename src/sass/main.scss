@@ -151,12 +151,15 @@ body {
         }
         @media all and (min-width: 600px) and (max-width: 767px) {
             flex: 1 0 48%;
+            max-width: 48%;
         }
         @media all and (min-width: 768px) and (max-width: 1199px) {
             flex: 1 0 30%;
+            max-width: 30%;
         }
         @media all and (min-width: 1200px) {
             flex: 1 0 24%;
+            max-width: 24%;
         }
         &:hover {
             @extend %transition;
@@ -179,7 +182,7 @@ body {
                     color: #fff;
                     opacity: 1;
                     transition: opacity 0.5s ease-in;
-                    @extend %center-abs;
+                    //@extend %center-abs;
                 }
             }
         }
@@ -211,9 +214,10 @@ body {
             @extend %center-abs;
         }
         &__btn {
-            @extend %center-abs;
-            top: 0;
-            bottom: 0;
+            @include abs(30%,
+            0,
+            auto,
+            0);
             width: 100px;
             height: 100px;
             background-color: $main;
