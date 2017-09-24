@@ -60,9 +60,13 @@ const vm = new Vue({
     },
     methods: {
         fetchData() {
-            $.get(apiURL, data => {
-                this.items = data;
-            });
+            axios.get(apiURL)
+            .then(resp => {
+              this.items = resp.data
+            })
+            .catch(e => {
+              this.errors.push(e)
+            })
         },
         sortBy(sortKey) {
             this.items.sort((a, b) =>
