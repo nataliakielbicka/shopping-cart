@@ -1,0 +1,40 @@
+.sort-by {
+    clear: both;
+    margin: 0 auto 40px auto;
+    @extend %flex-center;
+    @media all and (min-width: 992px) {
+        clear: none;
+        display: block;
+        float: right;
+        margin: 30px 10px;
+    }
+    @media all and (min-width: 992px) and (max-width: 1199px) {
+        width: 45%;
+    }
+    @media all and (min-width: 1200px) {
+        width: 30%;
+    }
+    &__label {
+        line-height: 45px;
+    }
+    &__select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        background-image: url("../../dist/img/select.svg");
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        background-size: 20px auto;
+        float: right;
+        margin: 0 0 0 20px;
+        width: 75%;
+        @extend %input;
+        @media all and (min-width: 320px) and (max-width: 400px) {
+            width: 70%;
+        }
+        @media all and (min-width: 992px) {
+            margin: 0;
+        }
+    }
+}

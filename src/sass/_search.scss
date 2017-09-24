@@ -1,0 +1,22 @@
+.search {
+    width: 100%;
+    margin: 20px auto;
+    @extend %flex-center;
+    @media all and (min-width: 320px) and (max-width: 400px) {
+        width: 70%;
+    }
+    @media all and (min-width: 992px) {
+        display: inline-block;
+        width: 50%;
+        float: left;
+        margin: 30px 10px;
+    }
+    &__input {
+        @extend %input;
+        display: inline-block;
+        margin: 0 0 0 20px;
+        @media all and (min-width: 320px) and (max-width: 400px) {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.header {
+    @extend %bg;
+    background-image: url(../img/header.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    text-align: center;
+    @media all and (min-width: 992px) {
+        align-items: flex-start;
+        text-align: left;
+    }
+    &__heading,
+    &__subheading {
+        color: #fff;
+        margin: 0 0 10px 0;
+        text-shadow: 1px 1px 10px $main;
+        @media all and (min-width: 992px) {
+            margin: 0 0 10px 10%;
+        }
+    }
+    &__heading {
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        @media all and (min-width: 992px) {
+            font-size: 45px;
+        }
+    }
+    &__subheading {
+        font-size: 20px;
+        @media all and (min-width: 992px) {
+            font-size: 30px;
+        }
+    }
+}

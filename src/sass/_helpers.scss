@@ -1,0 +1,33 @@
+%bg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+%transition {
+    transition: all 0.5s ease-in;
+}
+
+%center-abs {
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+}
+%input {
+    border: 1px solid $main;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 20px;
+    height: 45px;
+    padding: 5px;
+    outline: none;
+    &:focus {
+        border: 2px solid $main;
+    }
+}
+
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

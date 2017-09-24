@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+body {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 17px;
+    overflow-x: hidden;
+    @media all and (min-width: 768px) {
+        font-size: 20px;
+    }
+}
+[v-cloak] {
+    display: none;
+}
+
+.container {
+    margin: 0 auto;
+    @media all and (min-width: 1400px) {
+        max-width: 1300px;
+    }
+    @media all and (min-width: 1600px) {
+        max-width: 1500px;
+    }
+    @media all and (min-width: 1920px) {
+        max-width: 1800px;
+    }
+}
+
+.footer {
+    background-color: $main;
+    padding: 5px;
+    &__copy {
+        color: #fff;
+        display: block;
+        line-height: normal;
+        width: 100%;
+        text-align: center;
+    }
+}
