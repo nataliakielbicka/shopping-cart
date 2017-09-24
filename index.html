@@ -88,7 +88,7 @@
         <div class="products">
             <figure v-for="item in products" class="products__item">
                 <div class="products__imgwrapper">
-                    <div class="products__image" :style='{ backgroundImage: " url( " + item.img + ") ", }'></div>
+                    <img :src="item.img" :alt="item.id" class="products__image">
                 </div>
                 <figcaption class="products__caption caption">
                     <h3 class="caption__name">{{ item.name }}</h3>

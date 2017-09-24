@@ -241,11 +241,6 @@ body {
             max-width: 24%;
         }
         &:hover {
-            @extend %transition;
-            .products__image {
-                background-size: 120% auto;
-                @extend %transition;
-            }
             &:before {
                 content: "";
                 background-color: rgba(#fff, 0.85);
@@ -328,19 +323,7 @@ body {
     &__image {
         width: 100%;
         display: block;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        min-height: 400px;
         @extend %transition;
-        @media all and (min-width: 768px) and (max-width: 1199px) {
-            background-position: top center;
-            min-height: 400px;
-        }
-        @media all and (min-width: 1400px) {
-            background-position: top center;
-            min-height: 400px;
-        }
     }
 }
 
