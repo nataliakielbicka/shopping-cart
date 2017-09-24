@@ -55,13 +55,11 @@ const vm = new Vue({
     },
     computed: {
         products: function() {
-            var self = this;
-            return this.items.filter(item => item.name.toLowerCase().indexOf(self.search.toLowerCase()) >= 0);
+            return this.items.filter(item => item.name.toLowerCase().indexOf(this.search.toLowerCase()) >= 0);
         }
     },
     methods: {
         fetchData() {
-            //const self = this;
             $.get(apiURL, data => {
                 this.items = data;
             });

@@ -56,19 +56,19 @@ var vm = new Vue({
     },
     computed: {
         products: function products() {
-            var self = this;
+            var _this = this;
+
             return this.items.filter(function (item) {
-                return item.name.toLowerCase().indexOf(self.search.toLowerCase()) >= 0;
+                return item.name.toLowerCase().indexOf(_this.search.toLowerCase()) >= 0;
             });
         }
     },
     methods: {
         fetchData: function fetchData() {
-            var _this = this;
+            var _this2 = this;
 
-            //const self = this;
             $.get(apiURL, function (data) {
-                _this.items = data;
+                _this2.items = data;
             });
         },
         sortBy: function sortBy(sortKey) {
