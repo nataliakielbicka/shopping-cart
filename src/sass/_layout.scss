@@ -12,7 +12,7 @@ body {
     font-family: 'Comfortaa', Arial, sans-serif;
     font-size: 17px;
     overflow-x: hidden;
-    @media all and (min-width: 768px) {
+    @media all and (min-width: $tablet) {
         font-size: 20px;
     }
 }
@@ -22,13 +22,13 @@ body {
 
 .container {
     margin: 0 auto;
-    @media all and (min-width: 1400px) {
+    @media all and (min-width: $desktop) {
         max-width: 1300px;
     }
-    @media all and (min-width: 1600px) {
+    @media all and (min-width: $bigger-desktop) {
         max-width: 1500px;
     }
-    @media all and (min-width: 1920px) {
+    @media all and (min-width: $big-desktop) {
         max-width: 1800px;
     }
 }

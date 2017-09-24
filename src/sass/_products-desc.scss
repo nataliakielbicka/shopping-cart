@@ -5,7 +5,7 @@
     &__heading {
         font-size: 30px;
         margin: 0 0 10px 0;
-        @media all and (min-width: 992px) {
+        @media all and (min-width: $big-tablet) {
             font-size: 40px;
         }
     }
@@ -13,10 +13,10 @@
         display: block;
         margin: 20px auto;
         width: 90%;
-        @media all and (min-width: 992px) and (max-width: 1199px) {
+        @media all and (min-width: $big-tablet) and (max-width: $small-desktop-min) {
             max-width: 60%;
         }
-        @media all and (min-width: 1200px) {
+        @media all and (min-width: $small-desktop) {
             max-width: 42%;
         }
     }

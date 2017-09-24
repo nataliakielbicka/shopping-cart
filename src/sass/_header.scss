@@ -7,7 +7,7 @@
     flex-direction: column;
     height: 50vh;
     text-align: center;
-    @media all and (min-width: 992px) {
+    @media all and (min-width: $big-tablet) {
         align-items: flex-start;
         text-align: left;
     }
@@ -16,7 +16,7 @@
         color: #fff;
         margin: 0 0 10px 0;
         text-shadow: 1px 1px 10px $main;
-        @media all and (min-width: 992px) {
+        @media all and (min-width: $big-tablet) {
             margin: 0 0 10px 10%;
         }
     }
@@ -25,13 +25,13 @@
         font-weight: bold;
         letter-spacing: 2px;
         text-transform: uppercase;
-        @media all and (min-width: 992px) {
+        @media all and (min-width: $big-tablet) {
             font-size: 45px;
         }
     }
     &__subheading {
         font-size: 20px;
-        @media all and (min-width: 992px) {
+        @media all and (min-width: $big-tablet) {
             font-size: 30px;
         }
     }

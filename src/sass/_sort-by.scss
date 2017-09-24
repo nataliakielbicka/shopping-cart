@@ -2,16 +2,16 @@
     clear: both;
     margin: 0 auto 40px auto;
     @extend %flex-center;
-    @media all and (min-width: 992px) {
+    @media all and (min-width: $big-tablet) {
         clear: none;
         display: block;
         float: right;
         margin: 30px 10px;
     }
-    @media all and (min-width: 992px) and (max-width: 1199px) {
+    @media all and (min-width: $big-tablet) and (max-width: $small-desktop-min) {
         width: 45%;
     }
-    @media all and (min-width: 1200px) {
+    @media all and (min-width: $small-desktop) {
         width: 30%;
     }
     &__label {
@@ -30,10 +30,10 @@
         margin: 0 0 0 20px;
         width: 75%;
         @extend %input;
-        @media all and (min-width: 320px) and (max-width: 400px) {
+        @media all and (min-width: $phone) and (max-width: $bigger-phone) {
             width: 70%;
         }
-        @media all and (min-width: 992px) {
+        @media all and (min-width: $big-tablet) {
             margin: 0;
         }
     }

@@ -2,10 +2,10 @@
     width: 100%;
     margin: 20px auto;
     @extend %flex-center;
-    @media all and (min-width: 320px) and (max-width: 400px) {
+    @media all and (min-width: $phone) and (max-width: $bigger-phone) {
         width: 70%;
     }
-    @media all and (min-width: 992px) {
+    @media all and (min-width: $big-tablet) {
         display: inline-block;
         width: 50%;
         float: left;
@@ -15,7 +15,7 @@
         @extend %input;
         display: inline-block;
         margin: 0 0 0 20px;
-        @media all and (min-width: 320px) and (max-width: 400px) {
+        @media all and (min-width: $phone) and (max-width: $bigger-phone) {
             width: 100%;
         }
     }
