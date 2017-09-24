@@ -64,9 +64,11 @@ var vm = new Vue({
     },
     methods: {
         fetchData: function fetchData() {
-            var self = this;
+            var _this = this;
+
+            //const self = this;
             $.get(apiURL, function (data) {
-                self.items = data;
+                _this.items = data;
             });
         },
         sortBy: function sortBy(sortKey) {

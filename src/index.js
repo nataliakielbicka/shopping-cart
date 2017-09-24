@@ -61,9 +61,9 @@ const vm = new Vue({
     },
     methods: {
         fetchData() {
-            const self = this;
+            //const self = this;
             $.get(apiURL, data => {
-                self.items = data;
+                this.items = data;
             });
         },
         sortBy(sortKey) {
